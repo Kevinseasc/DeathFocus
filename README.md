@@ -88,6 +88,10 @@ Standard ForgeGradle workflow:
 
 The mod jar is written to `build/libs/`.
 
+## AI involvement
+
+The development of this project involves AI.
+
 ## License
 
 [MIT](LICENSE)
