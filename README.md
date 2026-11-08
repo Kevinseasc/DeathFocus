@@ -4,6 +4,14 @@ A Minecraft Forge mod for 1.20.1 that replaces the vanilla death screen with a s
 **killcam-style focus on your killer**, plus an on-screen panel showing who killed you
 and with what.
 
+# Download
+This project will be released to **CurseForge** and **Modrinth** after the basic feature development and testing are completed.
+The project is available for download on the Releases page or the Actions page.
+
+## AI involvement
+
+The development of this project involves AI.
+
 ## What it does
 
 When a player dies:
@@ -27,24 +35,13 @@ location while it's being held in place server-side.
 
 - **Melee / any vanilla damage source** with a player attacker — the attacker's
   current main-hand item is shown as the weapon.
-- **TACZ gun kills** — detected without a compile-time or runtime-mandatory
+- **TACZ support** — detected without a compile-time or runtime-mandatory
   dependency on TACZ. If TACZ isn't installed, this code path is simply never
   reached; nothing breaks.
 - **Environmental deaths** (fall, fire, drowning, `/kill`, etc. — no player
   attacker) — shown as plain environmental damage, no weapon.
 
-## TACZ support is optional
 
-TACZ is a soft dependency. DeathFocus never has a hard compile-time or runtime
-dependency on it:
-
-- All TACZ interaction (listening for its gun-kill event, building an `ItemStack`
-  for the gun icon, resolving the gun's display name) goes through reflection,
-  gated behind `ModList.isLoaded("tacz")`.
-- If TACZ is absent, that code path is never executed and nothing fails to load.
-- If TACZ is present, kills made with it show the gun's actual icon and name in
-  the panel, rendered through TACZ's own `GunItemBuilder` + vanilla item
-  rendering — no manual texture parsing.
 
 ## Project layout
 
@@ -75,22 +72,9 @@ src/main/java/org/kevinseas/deathfocus/
 
 - Minecraft 1.20.1
 - Forge 47.4.28 or newer
-- [TACZ](https://www.curseforge.com/minecraft/mc-mods/timeless-and-classics-zero)
-  (optional) — only needed if you want gun kills identified and their icon shown
+- [Timeless and Classics Zero Guns](https://www.curseforge.com/minecraft/mc-mods/timeless-and-classics-zero) 1.1.8-hotfix or newer
+  (optional)
 
-## Building
-
-Standard ForgeGradle workflow:
-
-```
-./gradlew build
-```
-
-The mod jar is written to `build/libs/`.
-
-## AI involvement
-
-The development of this project involves AI.
 
 ## License
 
