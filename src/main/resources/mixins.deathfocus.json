@@ -1,0 +1,10 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "org.kevinseas.deathfocus.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "deathfocus.refmap.json",
+  "client": [
+    "MouseHandlerMixin"
+  ]
+}

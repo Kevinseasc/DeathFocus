@@ -27,6 +27,8 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import org.kevinseas.deathfocus.killcam.TaczSupport;
+import org.kevinseas.deathfocus.network.NetworkHandler;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -82,6 +84,14 @@ public class Deathfocus {
 
         // Register our mod's ForgeConfigSpec so that Forge can create and load the config file for us
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+
+        // 死亡聚焦 + 淘汰信息面板用到的网络包。
+        NetworkHandler.register();
+
+        // 只有在确认 TACZ 已加载后才注册 TACZ 相关的事件监听（全部走反射，没装 TACZ 不受影响）。
+        if (TaczSupport.isLoaded()) {
+            TaczSupport.register(MinecraftForge.EVENT_BUS);
+        }
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
