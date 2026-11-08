@@ -75,6 +75,13 @@ src/main/java/org/kevinseas/deathfocus/
 - [Timeless and Classics Zero Guns](https://www.curseforge.com/minecraft/mc-mods/timeless-and-classics-zero) 1.1.8-hotfix or newer
   (optional)
 
+## TODO
+
+- [ ] More detailed environmental death messages (currently a single generic
+      "environmental damage" label for fall/fire/drowning/`/kill`/etc.)
+- [ ] Kill/death counter (tracked across the session, shown somewhere in the UI)
+- [ ] Configurable focus duration (currently hardcoded to `SPECTATING_TICKS = 80`,
+      4 seconds)
 
 ## License
 
