@@ -40,6 +40,11 @@ authors="${mod_authors}" #optional
 
 # The description text for the mod (multi line!) (#mandatory)
 description='''${mod_description}'''
+
+# 聚焦期间锁定鼠标视角用到的 Mixin 配置文件。
+[[mixins]]
+config="mixins.${mod_id}.json"
+
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
 [[dependencies."${mod_id}"]] #optional
    # the modid of the dependency
@@ -59,5 +64,13 @@ description='''${mod_description}'''
    mandatory=true
    # This version range declares a minimum of the current minecraft version up to but not including the next major version
    versionRange="${minecraft_version_range}"
+   ordering="NONE"
+   side="BOTH"
+# TACZ 是可选的软依赖：装了就能识别枪械击杀并展示枪械图标/名字，没装也完全不受影响
+# （淘汰聚焦相关类全部通过反射访问 TACZ，没有编译期依赖，也不会在没装 TACZ 时报错）。
+[[dependencies."${mod_id}"]]
+   modId="tacz"
+   mandatory=false
+   versionRange="[1.0,)"
    ordering="NONE"
    side="BOTH"
