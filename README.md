@@ -4,7 +4,7 @@ A Minecraft Forge mod for 1.20.1 that replaces the vanilla death screen with a s
 **killcam-style focus on your killer**, plus an on-screen panel showing who killed you
 and with what.
 
-# Download
+## Download
 This project will be released to **CurseForge** and **Modrinth** after the basic feature development and testing are completed.
 The project is available for download on the Releases page or the Actions page.
 
